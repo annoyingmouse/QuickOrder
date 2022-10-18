@@ -14,6 +14,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
+    <script src="components/Roof.js"></script>
+    <script src="components/Panel.js"></script>
   </head>
   <body>
     <button type="button"
@@ -22,7 +24,6 @@
             data-target="#quickOrderModal">
       Launch quick order modal
     </button>
-
     <div class="modal fade"
          data-bs-backdrop="static"
          data-bs-keyboard="false"
@@ -30,7 +31,7 @@
          tabindex="-1"
          aria-labelledby="quickOrderModalLabel"
          aria-hidden="true">
-      <div class="modal-dialog modal-xl modal-fullscreen-md-down">
+      <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title"
@@ -38,19 +39,21 @@
           </div>
           <div class="modal-body">
             <div class="modal-split"
-                 data-title="Pick Panels">
+                 data-title="Pick Panels"
+                 data-object="panel">
               <div class="form">
                 <div class="row" id="panel-container"></div>
               </div>
             </div>
             <div class="modal-split"
-                 data-title="Pick Layout">
+                 data-title="Pick Roof Type"
+                 data-object="roof">
               <div class="form">
-                <div class="row" id="layout-container"></div>
+                <div class="row" id="roof-container"></div>
               </div>
             </div>
             <div class="modal-split"
-                 data-title="header 3">
+                 data-title="Pick Fittings">
               <div class="form">
                 <div class="body">body 3</div>
               </div>
@@ -61,18 +64,6 @@
         </div>
       </div>
     </div>
-    <template id="panel-card">
-      <div class="col-6 col-lg-3 col-md-4 col-sm-6 p-2">
-        <div class="card">
-          <img src="https://via.placeholder.com/150" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
-      </div>
-
-    </template>
     <script type="module"
             src="script/script.js"></script>
   </body>
