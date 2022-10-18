@@ -164,6 +164,11 @@ const prep_modal = (modal) => {
       showAndHide(pages, pageTrack, title)
     }
     modal.dataset.type = pages[pageTrack].dataset.object
+    if(order[modal.dataset.type].id){
+      nextButton.removeAttribute('disabled')
+    }else{
+      nextButton.disabled = true
+    }
   })
   nextButton.addEventListener('click', () => {
     if (pageTrack === 0) {
@@ -180,6 +185,11 @@ const prep_modal = (modal) => {
       showAndHide(pages, pageTrack, title)
     }
     modal.dataset.type = pages[pageTrack].dataset.object
+    if(order[modal.dataset.type].id){
+      nextButton.removeAttribute('disabled')
+    }else{
+      nextButton.disabled = true
+    }
   })
 }
 
@@ -218,7 +228,6 @@ const selectThing = (type) => {
     }else{
       nextButton.disabled = true
     }
-    console.log(order)
   }
 }
 
