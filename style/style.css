@@ -1,21 +1,60 @@
 .truncated-1 {
   -webkit-line-clamp: 1;
-  overflow : hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
+
 .truncated-2 {
   -webkit-line-clamp: 2;
-  overflow : hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
+
 .truncated-3 {
   -webkit-line-clamp: 3;
-  overflow : hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
+
+.t-tip {
+  position: relative;
+  cursor: help;
+}
+.t-tip .t-tip-text {
+  visibility: hidden;
+  width: 250px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -125px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.75rem;
+}
+.t-tip .t-tip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.t-tip:hover .t-tip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*# sourceMappingURL=style.css.map */

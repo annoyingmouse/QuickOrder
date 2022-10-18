@@ -266,6 +266,5 @@ const selectThing = (type) => {
     card.addEventListener('click', selectThing('roof'))
     roofContainer.append(card)
   })
-  //document.querySelectorAll('.tooltip-test').forEach(function(a){new bootstrap.Tooltip(a)})
 })()
 
