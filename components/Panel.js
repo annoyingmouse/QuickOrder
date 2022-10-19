@@ -1,4 +1,6 @@
-class Panel extends HTMLElement{
+import { Card } from './Card.js'
+
+class Panel extends Card {
   static get observedAttributes() {
     return [
       'id',
@@ -6,15 +8,15 @@ class Panel extends HTMLElement{
       'name',
       'description',
       'image',
-      'selected'
+      'selected',
+      'width',
+      'height',
+      'price',
     ]
-  }
-  constructor() {
-    super();
   }
   get html() {
     return `
-      <div class="card h-100${this.selected ? ' bg-success text-white': ''}">
+      <div class="card h-100${this.selected ? ' bg-success text-white' : ''}">
         <img src="${this.image}" class="card-img-top" alt="${this.name}">
         <div class="card-body d-flex flex-column justify-content-between">
           <h5 class="card-title text-center t-tip">
@@ -29,36 +31,23 @@ class Panel extends HTMLElement{
     `
   }
   stripHtml(html) {
-    let doc = new DOMParser().parseFromString(html, 'text/html');
-    return doc.body.textContent || "";
-  }
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue !== newValue) {
-      this.render()
-    }
+    let doc = new DOMParser().parseFromString(html, 'text/html')
+    return doc.body.textContent || ''
   }
   render() {
     this.classList.add(...this.classes)
     this.dataset.id = this.id
+    this.dataset.aspectRatio = `${this.width / this.height}`
     this.innerHTML = this.html
   }
-  get classes() {
-    return this.getAttribute('classes').split(' ')
+  get height() {
+    return Number(this.getAttribute('height'))
   }
-  get image() {
-    return this.getAttribute('image')
+  get width() {
+    return Number(this.getAttribute('width'))
   }
-  get name() {
-    return this.getAttribute('name')
-  }
-  get description() {
-    return this.getAttribute('description')
-  }
-  get id() {
-    return this.getAttribute('id')
-  }
-  get selected() {
-    return this.classes.indexOf('selected')  >= 0
+  get price() {
+    return Number(this.getAttribute('price'))
   }
 }
 window.customElements.define('mse-panel-card', Panel)

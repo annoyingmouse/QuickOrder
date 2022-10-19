@@ -14,9 +14,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
-    <script src="components/Roof.js"></script>
-    <script src="components/Panel.js"></script>
-    <link rel="stylesheet" href="style/style.css">
+    <script type="module"
+            src="components/Panel.js"></script>
+    <script type="module"
+            src="components/Roof.js"></script>
+    <script type="module"
+            src="components/Mount.js"></script>
+    <link rel="stylesheet"
+          href="style/style.css">
   </head>
   <body>
     <button type="button"
@@ -31,7 +36,14 @@
          id="quickOrderModal"
          tabindex="-1"
          aria-labelledby="quickOrderModalLabel"
-         aria-hidden="true">
+         aria-hidden="true"
+         data-panel-id=""
+         data-roof-id=""
+         data-mount-id=""
+         data-rows="2"
+         data-columns="7"
+         data-panels="14"
+         data-aspect-ratio="">
       <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
           <div class="modal-header">
@@ -54,8 +66,62 @@
               </div>
             </div>
             <div class="modal-split"
-                 data-title="Pick Fittings"
+                 data-title="Pick Mountings"
                  data-object="mount">
+              <div class="form">
+                <div class="row" id="mount-container"></div>
+              </div>
+            </div>
+            <div class="modal-split"
+                 data-title="Choose Layout"
+                 data-object="layout">
+              <div class="form">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <label for="rows" class="form-label">Rows</label>
+                      <input type="number"
+                             class="form-control"
+                             id="rows"
+                             value="2">
+                    </div>
+                    <div class="mb-3">
+                      <label for="columns" class="form-label">Columns</label>
+                      <input type="number"
+                             class="form-control"
+                             id="columns"
+                             value="7">
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="orientation" id="landscape">
+                      <label class="form-check-label" for="landscape">
+                        Landscape
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="orientation" id="portrait" checked>
+                      <label class="form-check-label" for="portrait">
+                        Portrait
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div id="gridHolder" class="p-5"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-split"
+                 data-title="Choose Inverter"
+                 data-object="inverter">
+              <div class="form">
+                <div class="body">body 3</div>
+              </div>
+            </div>
+            <div class="modal-split"
+                 data-title="Finish up"
+                 data-object="order">
               <div class="form">
                 <div class="body">body 3</div>
               </div>

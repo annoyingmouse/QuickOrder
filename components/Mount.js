@@ -1,8 +1,8 @@
 import { Card } from './Card.js'
 
-class Roof extends Card {
+class Mount extends Card {
   static get observedAttributes() {
-    return ['id', 'classes', 'image', 'name', 'selected']
+    return ['classes', 'id', 'name', 'image', 'selected']
   }
   get html() {
     return `
@@ -15,4 +15,4 @@ class Roof extends Card {
     `
   }
 }
-window.customElements.define('mse-roof-card', Roof)
+window.customElements.define('mse-mount-card', Mount)

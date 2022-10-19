@@ -1,0 +1,22 @@
+{
+  "name": "quickorder",
+  "version": "0.0.1",
+  "description": "Modal to allow a quick order to be placed",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annoyingmouse/QuickOrder.git"
+  },
+  "author": "Dominic Myers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annoyingmouse/QuickOrder/issues"
+  },
+  "homepage": "https://github.com/annoyingmouse/QuickOrder#readme",
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
+}
