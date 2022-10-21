@@ -1,6 +1,6 @@
 import { Card } from './Card.js'
 
-class Panel extends Card {
+class Inverter extends Card {
   static get observedAttributes() {
     return [
       'id',
@@ -9,8 +9,6 @@ class Panel extends Card {
       'description',
       'image',
       'selected',
-      'width',
-      'height',
       'price',
     ]
   }
@@ -37,18 +35,10 @@ class Panel extends Card {
   render() {
     this.classList.add(...this.classes)
     this.dataset.id = this.id
-    this.dataset.panelWidth = `${this.width}`
-    this.dataset.panelHeight = `${this.height}`
     this.innerHTML = this.html
-  }
-  get height() {
-    return Number(this.getAttribute('height'))
-  }
-  get width() {
-    return Number(this.getAttribute('width'))
   }
   get price() {
     return Number(this.getAttribute('price'))
   }
 }
-window.customElements.define('mse-panel-card', Panel)
+window.customElements.define('mse-inverter-card', Inverter)

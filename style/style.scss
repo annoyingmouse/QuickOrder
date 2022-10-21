@@ -50,3 +50,15 @@
     cursor: pointer;
   }
 }
+
+#gridBackground {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAA8CAMAAAAueXiVAAAAM1BMVEWIAQF1AACfAACNAACCAABuAACYAABYAABbAgJUAABjAAAiAABpAABMAAAvAAApAAAxAAAxgYwsAAAAZElEQVRIx+3USw6AIAxF0baCfCro/ldrkYQYWIAxecwu7yTMIMdaTpF928iOpddQLZ9aVkrqmeqRYwztpKJMcuVeYV4psbf9xVvK4NNKrl2M50b2WlZwcHDw33P8wODg4OCf8BvlyBeb1rtL3wAAAABJRU5ErkJggg==');
+  .panel {
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid blue;
+    &.selected {
+      background-color: blue;
+    }
+  }
+}

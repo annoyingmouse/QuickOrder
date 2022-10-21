@@ -2,6 +2,7 @@ import { prepModal } from './paging.js'
 import { setAttributes, selectThing } from './helpers.js'
 import { roofs, mounts } from '../data/data.js'
 import panels from '../data/panels.json' assert { type: 'json' }
+import inverters from '../data/inverters.json' assert { type: 'json' }
 import catalogue from '../data/catalogue.json' assert { type: 'json' }
 import { GridBuilder } from './GridBuilder.js'
 ;(() => {
@@ -14,6 +15,7 @@ import { GridBuilder } from './GridBuilder.js'
   const panelContainer = document.getElementById('panel-container')
   const roofContainer = document.getElementById('roof-container')
   const mountContainer = document.getElementById('mount-container')
+  const inverterContainer = document.getElementById('inverter-container')
   prepModal(modalElement)
   launchButton.addEventListener('click', () => {
     quickOrderModal.show()
@@ -46,7 +48,6 @@ import { GridBuilder } from './GridBuilder.js'
       panelContainer.append(card)
     }
   }
-
   roofs.forEach((roof) => {
     const card = document.createElement('mse-roof-card')
     setAttributes(card, {
@@ -79,4 +80,30 @@ import { GridBuilder } from './GridBuilder.js'
     'input[name="orientation"]',
     document.getElementById('gridHolder')
   )
+  for (const [_, inverter] of Object.entries(inverters)) {
+    if (
+      Number(inverter.wholesaleID) &&
+      Number(inverter.available) &&
+      catalogue[inverter.wholesaleID]
+    ) {
+      const catalogueItem = catalogue[inverter.wholesaleID]
+      const card = document.createElement('mse-inverter-card')
+      setAttributes(card, {
+        classes: cardClasses,
+        weight: inverter.weight,
+        id: inverter.ID,
+        name: catalogueItem.title,
+        description: catalogueItem.shortDescription,
+        price: catalogueItem.price,
+      })
+      if (catalogueItem.photourl) {
+        card.setAttribute(
+          'image',
+          `https://midsummerwholesale.co.uk${catalogueItem.photourl}`
+        )
+      }
+      card.addEventListener('click', selectThing('inverter'))
+      inverterContainer.append(card)
+    }
+  }
 })()

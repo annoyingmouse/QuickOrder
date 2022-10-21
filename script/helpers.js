@@ -61,7 +61,8 @@ export const selectThing = (type) => {
       nextButton.disabled = true
     }
     if (type === 'panel') {
-      modal.dataset.aspectRatio = clickedCard.dataset.aspectRatio
+      modal.dataset.panelWidth = clickedCard.dataset.panelWidth
+      modal.dataset.panelHeight = clickedCard.dataset.panelHeight
     }
   }
 }

@@ -53,6 +53,24 @@ export const prepModal = (modal) => {
       nextButton.disabled = true
     }
   })
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === 'attributes' &&
+        mutation.attributeName === 'data-panels' &&
+        modal.dataset.type === 'layout'
+      ) {
+        if (!Number(modal.dataset.panels)) {
+          nextButton.disabled = true
+        } else {
+          nextButton.removeAttribute('disabled')
+        }
+      }
+    })
+  })
+  observer.observe(modal, {
+    attributes: true,
+  })
 }
 
 const createButton = (text, className, hide = false, disabled = false) => {
